@@ -1,7 +1,7 @@
 
 #include "MMC5603NJ.h"
 #include "mbed.h"
-
+//todo
 MMC5603NJ::MMC5603NJ(PinName sda, PinName scl): m_i2c(sda, scl), m_addr(MMC_ADDR)
 {
     char cmd[2];
@@ -10,7 +10,7 @@ MMC5603NJ::MMC5603NJ(PinName sda, PinName scl): m_i2c(sda, scl), m_addr(MMC_ADDR
     m_i2c.write(m_addr, cmd, 2);
 
 }
-
+//todo
 void MMC5603NJ::enable(void) {
     uint8_t data[2];
     readRegs( MAG_CTRL_REG1, &data[1], 1);
@@ -19,7 +19,7 @@ void MMC5603NJ::enable(void) {
     writeRegs(data, 2);
 }
 
-
+//todo
 void MMC5603NJ::disable(void) {
     uint8_t data[2];
     readRegs( MAG_CTRL_REG1, &data[1], 1);
@@ -99,69 +99,3 @@ void MMC5603NJ::getAxis() {
     this.y = ((float) t[1])/((float) 16384);
     this.z = ((float) t[2])/((float) 16384);
 }
-/*
-
-// read a register per, pass first reg value, reading 2 bytes increments register
-// Reads MSB first then LSB
-int MAG3110::readVal(char regAddr)
-{
-    char cmd[2];
-    int16_t t;
-    cmd[0] = regAddr;
-    if(_i2c.write(m_addr, cmd, 1)) {
-        printf("MAG3110 write error\r\n");
-        _i2c.stop();
-        _i2c.start();
-        }
-
-    cmd[0] = 0x00;
-    cmd[1] = 0x00;
-    _i2c.read(m_addr, cmd, 2);
-    t = (cmd[0] * 256) + (unsigned short) cmd[1];
-    return ((int) t); //concatenate the MSB and LSB
-}
-
-
-float MAG3110::getHeading()
-{
-    int xVal = readVal(MAG_OUT_X_MSB);
-    int yVal = readVal(MAG_OUT_Y_MSB);
-    return (atan2((double)(yVal - _avgY),(double)(xVal - _avgX)))*180/PI;
-}
-
-void MAG3110::getValues(int *xVal, int *yVal, int *zVal)
-{
-    *xVal = readVal(MAG_OUT_X_MSB);
-    *yVal = readVal(MAG_OUT_Y_MSB);
-    *zVal = readVal(MAG_OUT_Z_MSB);
-}
-
-void MAG3110::ReadXYZ(float * mag)
-{
-    int x, y, z;
-    x = readVal(MAG_OUT_X_MSB);
-    y = readVal(MAG_OUT_Y_MSB);
-    z = readVal(MAG_OUT_Z_MSB);
-    mag[0] = (float) x / 10.0;
-    mag[1] = (float) y / 10.0;
-    mag[2] = (float) z / 10.0;
-    
-}
-
-void MAG3110::ReadXYZraw(int16_t * mag_raw)
-{
-    mag_raw[0] = readVal(MAG_OUT_X_MSB);
-    mag_raw[1] = readVal(MAG_OUT_Y_MSB);
-    mag_raw[2] = readVal(MAG_OUT_Z_MSB);
-}
-
-void MAG3110::setCalibration(int minX, int maxX, int minY, int maxY )
-{
-    _avgX=(maxX+minX)/2;
-    _avgY=(maxY+minY)/2;
-}
-*/
-
-
-
-
