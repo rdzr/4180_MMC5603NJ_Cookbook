@@ -1,31 +1,38 @@
 
 #include "MMC5603NJ.h"
 #include "mbed.h"
-//todo
+
 MMC5603NJ::MMC5603NJ(PinName sda, PinName scl): m_i2c(sda, scl), m_addr(MMC_ADDR)
 {
     char cmd[2];
     cmd[0] = MMC_INCTRL0;
-    cmd[1] = 0x21;
+    cmd[1] = 0x10;
     m_i2c.write(m_addr, cmd, 2);
 
 }
-//todo
+
 void MMC5603NJ::enable(void) {
     uint8_t data[2];
-    readRegs( MAG_CTRL_REG1, &data[1], 1);
-    data[1] |= 0xFF;
+    data[1] = 0x01;
     data[0] = MMC_ODR;
-    writeRegs(data, 2);
+    m_i2c.write(m_addr, data, 2);
+    uint8_t en[2];
+    readRegs( MMC_INCTRL0, &en[1], 1);
+    en[1] |= 0x80;
+    en[0] = MMC_INCTRL0;
+    m_i2c.write(m_addr, en, 2);
 }
 
-//todo
 void MMC5603NJ::disable(void) {
     uint8_t data[2];
-    readRegs( MAG_CTRL_REG1, &data[1], 1);
-    data[1] &= 0xFE;
-    data[0] = MAG_CTRL_REG1;
-    writeRegs(data, 2);
+    data[1] = 0x00;
+    data[0] = MMC_ODR;
+    m_i2c.write(m_addr, data, 2);
+    uint8_t en[2];
+    readRegs( MMC_INCTRL0, &en[1], 1);
+    en[1] &= 0x7F;
+    en[0] = MMC_INCTRL0;
+    m_i2c.write(m_addr, en, 2);
 }
 
 
