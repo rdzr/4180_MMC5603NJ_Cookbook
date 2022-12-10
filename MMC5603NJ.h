@@ -4,10 +4,9 @@
  * https://media.digikey.com/pdf/Data%20Sheets/MEMSIC%20PDFs/MMC5603NJ_RevB_7-12-18.pdf
  */
 
-#ifndef MMC5603NJ
-#define MMC5603NJ
-
 #include "mbed.h"
+#ifndef _MMC5603NJ
+#define _MMC5603NJ
 
 // define registers
 #define MMC_XOUT0 0x00
@@ -44,28 +43,22 @@
 class MMC5603NJ
 {
 public:
-    /**
-     * Main constructor
-     * @param sda SDA pin
-     * @param sdl SCL pin
-     */
     MMC5603NJ(PinName sda, PinName scl);
     void enable(void);
     void disable(void);
     uint32_t PID(void);
-    int32_t getTemp(void);
-    uint32_t dataReady(void);
-    void getX(int32_t* x);
-    void getY(int32_t* y);
-    void getZ(int32_t* z);
+    float getTemp(void);
+    void getX();
+    void getY();
+    void getZ();
     void getAxis();
-    void readRegs(int addr, uint8_t * data, int len);
+    void readRegs(int addr, char * data, int len);
     float x, y, z;
 private:
   I2C m_i2c;
-  char m_addr;
-  int32_t getMagAxis(uint8_t addr);
-  void writeRegs(uint8_t * data, int len);
+  int m_addr;
+  int32_t getMagAxis(char addr);
+  void writeRegs(char * data, int len);
 
 };
 #endif
