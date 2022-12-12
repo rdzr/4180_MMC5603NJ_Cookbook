@@ -97,16 +97,19 @@ char MMC5603NJ::getTemp() {
 void MMC5603NJ::getX() {
     int32_t xVal = getMagAxis(MMC_XOUT0);
     x = (float)xVal/(float)16384;
+    return x;
 }
 // Gets the most recently sampled y value.
 void MMC5603NJ::getY() {
     int yVal = getMagAxis(MMC_YOUT0);
     y = (float)yVal/(float)16384;
+    return y;
 }
 // Gets the most recently sampled z value.
 void MMC5603NJ::getZ() {
     int zVal = getMagAxis(MMC_ZOUT0);
     z = (float)zVal/(float)16384;
+    return z;
 }
 
 // Samples all three coordinate axes at once and stores in the x/y/z floats.

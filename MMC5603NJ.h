@@ -49,9 +49,9 @@ public:
     void disable(void);
     uint32_t PID(void);
     char getTemp(void);
-    void getX();
-    void getY();
-    void getZ();
+    float getX();
+    float getY();
+    float getZ();
     void getAxis();
     void readRegs(int addr, char * data, int len);
     float x, y, z;
