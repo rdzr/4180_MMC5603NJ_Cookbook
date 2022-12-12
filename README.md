@@ -1,3 +1,6 @@
+<p align="center">
+  <img width="500" height="673" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCboard.jpg">
+</p>
 # 4180_MMC5603NJ_Cookbook
 The MMC5603NJ is an ultra-small monolithic integrated 3-axis AMR magnetic sensor. It uses an I2C interface with compatility for I3C interfacing.
 This repository serves as a wiki page for our magnetometer breakout boards that feature it as the primary piece for our ECE 4180 final project.
@@ -11,6 +14,7 @@ This repository serves as a wiki page for our magnetometer breakout boards that 
 4. Usage examples
 
 # Chip Overview
+
 The MMC5603NJ is an ultra small (0.8 x 0.8 x 0.4 mm!) BGA package magnetometer chip that uses I2C interfacing to measure magnetic fields in the form of X, Y, and Z outputs.
 The chip self-degausses and has on-board SET and RESETs. The magnetometer has a wide range of single-input DC power, ranging from 1.2 to 3.6 volts, and
 the sampling rate of the chip automatically scales based on the power input.
@@ -28,6 +32,9 @@ as well as selftest thresholds. Finally, there is a product ID address that shou
 
 
 # Breakout Board Overview
+<p align="center">
+  <img width="200" height="200" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCbreakout.png">
+</p>
 The breakout board includes 4 labeled pins (Vcc, Gnd, SDA, SCL) and pads for the MMC5603NJ chip, power filtering capacitor, and I2C pull-up resistors. Also included in the repository are Gerber/NC Drill and BOM/Pick and Place outputs confirmed to work with JLCPCB fabrication and PCB assembly services. It is reccomended that all boards produced include the capacitor soldered on, but the pull-up resistors can be left off and external resistors used instead to lower costs.
 # File Contents / How to use
 The header file MMC5603NJ.h and C++ file MMC5603NJ.cpp are the components necessary to the import the MMC5603NJ's capabilities to an Mbed project.
