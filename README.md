@@ -5,14 +5,16 @@
 # 4180_MMC5603NJ_Cookbook
 The MMC5603NJ is an ultra-small monolithic integrated 3-axis AMR magnetic sensor. It uses an I2C interface with compatility for I3C interfacing.
 This repository serves as a wiki page for our magnetometer breakout boards that feature it as the primary piece for our ECE 4180 final project.
-# Contents
-1. Chip overview
+# Table of Contents
+* [Chip overview](chip-overview)
 
-2. Breakout board overview
+* [Breakout board overview](breakout-board-overview)
 
-3. File Contents/ How to Use
+* [Parts needed](parts-needed)
 
-4. Usage examples
+* [File Contents](file-contents)
+
+* [Usage examples](usage-examples)
 
 # Chip Overview
 
@@ -37,6 +39,12 @@ as well as selftest thresholds. Finally, there is a product ID address that shou
   <img width="200" height="200" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCbreakout.png">
 </p>
 The breakout board includes 4 labeled pins (Vcc, Gnd, SDA, SCL) and pads for the MMC5603NJ chip, power filtering capacitor, and I2C pull-up resistors. Also included in the repository are Gerber/NC Drill and BOM/Pick and Place outputs confirmed to work with JLCPCB fabrication and PCB assembly services. It is reccomended that all boards produced include the capacitor soldered on, but the pull-up resistors can be left off and external resistors used instead to lower costs.
+
+# Parts needed
+* MMC5603NJ: https://www.digikey.com/en/products/detail/memsic-inc/MMC5603NJ/10452796
+* Mbed LPC1768: https://www.sparkfun.com/products/9564
+* M/M Jumper Wires: https://www.sparkfun.com/products/12795
+* Resistors (various, needs to total up to 2.7k Ohms): https://www.sparkfun.com/products/10969
 
 # File Contents / How to use
 The header file MMC5603NJ.h and C++ file MMC5603NJ.cpp are the components necessary to the import the MMC5603NJ's capabilities to an Mbed project.
