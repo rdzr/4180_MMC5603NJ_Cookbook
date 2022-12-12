@@ -1,6 +1,7 @@
 <p align="center">
   <img width="500" height="673" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCboard.jpg">
 </p>
+
 # 4180_MMC5603NJ_Cookbook
 The MMC5603NJ is an ultra-small monolithic integrated 3-axis AMR magnetic sensor. It uses an I2C interface with compatility for I3C interfacing.
 This repository serves as a wiki page for our magnetometer breakout boards that feature it as the primary piece for our ECE 4180 final project.
