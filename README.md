@@ -1,20 +1,28 @@
 <p align="center">
   <img width="500" height="673" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCboard.jpg">
 </p>
+Video Presentation link:
 
+[4180 Final Project MMC Breakout](https://gtvault-my.sharepoint.com/personal/kcunningham35_gatech_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkcunningham35%5Fgatech%5Fedu%2FDocuments%2FThird%20Year%2FFall%202022%2FECE%204180%2FFinal%20Project%20Slides%2Emp4&ct=1670872417308&or=OWA-NT&cid=b07bff2d-fa36-9e94-3c51-46a70336727f&ga=1)
+
+Video Demonstration link:
+
+[4180 Final Project MMC Breakout Demo](https://gtvault-my.sharepoint.com/personal/kcunningham35_gatech_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkcunningham35%5Fgatech%5Fedu%2FDocuments%2FThird%20Year%2FFall%202022%2FECE%204180%2FFinal%20Project%20Demo%2Emp4&ct=1670872226699&or=OWA-NT&cid=6426f8e7-7105-84ab-5ba4-74cedad1d782&ga=1)
 # 4180_MMC5603NJ_Cookbook
 The MMC5603NJ is an ultra-small monolithic integrated 3-axis AMR magnetic sensor. It uses an I2C interface with compatility for I3C interfacing.
 This repository serves as a wiki page for our magnetometer breakout boards that feature it as the primary piece for our ECE 4180 final project.
+
+The breakout board was designed by Kallen Cunningham in Altium Designer with part models from Ultra Librarian. Prototype boards were manufactured by JLCPCB. The library and demo code was developed by Rhett Dozier in Mbed's Cloud Compiler.
 # Table of Contents
-* [Chip overview](chip-overview)
+* [Chip overview](#chip-overview)
 
-* [Breakout board overview](breakout-board-overview)
+* [Breakout board overview](#breakout-board-overview)
 
-* [Parts needed](parts-needed)
+* [Parts needed](#parts-needed)
 
-* [File Contents](file-contents)
+* [File Contents](#file-contents)
 
-* [Usage examples](usage-examples)
+* [Usage examples](#usage-examples)
 
 # Chip Overview
 
@@ -46,7 +54,7 @@ The breakout board includes 4 labeled pins (Vcc, Gnd, SDA, SCL) and pads for the
 * M/M Jumper Wires: https://www.sparkfun.com/products/12795
 * Resistors (various, needs to total up to 2.7k Ohms): https://www.sparkfun.com/products/10969
 
-# File Contents / How to use
+# File Contents
 The header file MMC5603NJ.h and C++ file MMC5603NJ.cpp are the components necessary to the import the MMC5603NJ's capabilities to an Mbed project.
 Including these in the Mbed's directory as well as an include and a class constructor using the appropriate I2C sda and scl pin lines allows you to interact with
 the MMC5603NJ breakout board. For example,
@@ -60,6 +68,8 @@ MMC5603NJ mmc(p9, p10);
 Allows you to create a MMC5603NJ object for the Mbed LPC1768, using pin 9 as the sda and pin 10 as the scl.
 # Usage Examples
 Included with the wiki page is MMCDemo.cpp, a file meant to be ran on the Mbed to demonstrate various capabilities of the MMC5603NJ breakout board. It contains the following functions:
+
+setRate(char rate) to change the output data rate, or ODR, for the sampling speed of continuous measurement mode.
 
 testContMode() and contSampleForever() to test the MMC's continuous measurement mode
 
