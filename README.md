@@ -36,10 +36,12 @@ as well as selftest thresholds. Finally, there is a product ID address that shou
   <img width="200" height="200" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCbreakout.png">
 </p>
 The breakout board includes 4 labeled pins (Vcc, Gnd, SDA, SCL) and pads for the MMC5603NJ chip, power filtering capacitor, and I2C pull-up resistors. Also included in the repository are Gerber/NC Drill and BOM/Pick and Place outputs confirmed to work with JLCPCB fabrication and PCB assembly services. It is reccomended that all boards produced include the capacitor soldered on, but the pull-up resistors can be left off and external resistors used instead to lower costs.
+
 # File Contents / How to use
 The header file MMC5603NJ.h and C++ file MMC5603NJ.cpp are the components necessary to the import the MMC5603NJ's capabilities to an Mbed project.
 Including these in the Mbed's directory as well as an include and a class constructor using the appropriate I2C sda and scl pin lines allows you to interact with
 the MMC5603NJ breakout board. For example,
+
 ```
 #include "mbed.h"
 #include "MMC5603NJ.h"
@@ -48,4 +50,12 @@ MMC5603NJ mmc(p9, p10);
 ```
 Allows you to create a MMC5603NJ object for the Mbed LPC1768, using pin 9 as the sda and pin 10 as the scl.
 # Usage Examples
-Included with the wiki page is MMCDemo.cpp, a file meant to be ran on the Mbed to demonstrate various capabilities of the MMC5603NJ breakout board. 
+Included with the wiki page is MMCDemo.cpp, a file meant to be ran on the Mbed to demonstrate various capabilities of the MMC5603NJ breakout board. It contains the following functions:
+
+testContMode() and contSampleForever() to test the MMC's continuous measurement mode
+
+testSingleSampleModes() and singleSampleForever() to test the MMC's single-measurement mode
+
+testTemperature() to test the temperature measurement of the MMC
+
+testPID() as a way to check the device's product ID. Useful for debugging the SDA/SCL clock lines since it should always return 0x10, or 16 in decimal form.
