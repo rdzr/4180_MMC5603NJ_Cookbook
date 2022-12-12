@@ -12,10 +12,9 @@ MMC5603NJ::MMC5603NJ(PinName sda, PinName scl): m_i2c(sda, scl), m_addr(MMC_ADDR
 {
     char cmd[2];
     cmd[0] = MMC_INCTRL0;
-    cmd[1] = 0x10;
+    cmd[1] = 0x08;
     m_i2c.write(m_addr, cmd, 2);
-    wait(0.5);
-
+    wait(0.1);
 }
 void MMC5603NJ::setBitRate(unsigned char rate) {
     char data[2];
@@ -49,10 +48,6 @@ void MMC5603NJ::enable() {
 void MMC5603NJ::disable(void) {
     continuous = false;
     char en[2];
-    readRegs( MMC_INCTRL0, &en[1], 1);
-    en[1] &= 0x7F;
-    en[0] = MMC_INCTRL0;
-    m_i2c.write(m_addr, en, 2);
     readRegs(MMC_INCTRL2, &en[1], 1);
     en[1] &= 0xEF;
     en[0] = MMC_INCTRL2;
@@ -94,19 +89,22 @@ char MMC5603NJ::getTemp() {
 }
 
 // Gets the most recently sampled x value.
-void MMC5603NJ::getX() {
-    int32_t xVal = getMagAxis(MMC_XOUT0);
-    x = (float)xVal/(float)16384;
+float MMC5603NJ::getX() {
+    int32_t xVal = getMagAxis(MMC_XOUT0) - 524288;
+    x = ((float)xVal/(float)16384);
+    return x;
 }
 // Gets the most recently sampled y value.
-void MMC5603NJ::getY() {
-    int yVal = getMagAxis(MMC_YOUT0);
-    y = (float)yVal/(float)16384;
+float MMC5603NJ::getY() {
+    int yVal = getMagAxis(MMC_YOUT0) - 524288;
+    y = ((float)yVal/(float)16384);
+    return y;
 }
 // Gets the most recently sampled z value.
-void MMC5603NJ::getZ() {
-    int zVal = getMagAxis(MMC_ZOUT0);
-    z = (float)zVal/(float)16384;
+float MMC5603NJ::getZ() {
+    int zVal = getMagAxis(MMC_ZOUT0) - 524288;
+    z = ((float)zVal/(float)16384);
+    return z;
 }
 
 // Samples all three coordinate axes at once and stores in the x/y/z floats.
@@ -114,18 +112,21 @@ void MMC5603NJ::getAxis() {
     int32_t t[3];
     char res[9];
     if(continuous) {
-
+        
         readRegs(MMC_XOUT0, res, 9);
         t[0] = (res[0] << 12) | (res[1] << 4) | (res[6] >> 4);
         t[1] = (res[2] << 12) | (res[3] << 4) | (res[7] >> 4);
         t[2] = (res[4] << 12) | (res[5] << 4) | (res[8] >> 4);
+        t[0] -= 524288;
+        t[1] -= 524288;
+        t[2] -= 524288;
         x = ((float) t[0])/((float) 16384);
         y = ((float) t[1])/((float) 16384);
         z = ((float) t[2])/((float) 16384);
     } else {
-        t[0] = getMagAxis(MMC_XOUT0);
-        t[1] = getMagAxis(MMC_YOUT0);
-        t[2] = getMagAxis(MMC_ZOUT0);
+        t[0] = getMagAxis(MMC_XOUT0) - 524288;
+        t[1] = getMagAxis(MMC_YOUT0) - 524288;
+        t[2] = getMagAxis(MMC_ZOUT0) - 524288;
         x = ((float) t[0])/((float) 16384);
         y = ((float) t[1])/((float) 16384);
         z = ((float) t[2])/((float) 16384);

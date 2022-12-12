@@ -7,7 +7,7 @@
 #include "mbed.h"
 #ifndef _MMC5603NJ
 #define _MMC5603NJ
-
+    
 // define registers
 #define MMC_XOUT0 0x00
 #define MMC_XOUT1 0x01
@@ -49,9 +49,9 @@ public:
     void disable(void);
     uint32_t PID(void);
     char getTemp(void);
-    void getX();
-    void getY();
-    void getZ();
+    float getX();
+    float getY();
+    float getZ();
     void getAxis();
     void readRegs(int addr, char * data, int len);
     float x, y, z;
