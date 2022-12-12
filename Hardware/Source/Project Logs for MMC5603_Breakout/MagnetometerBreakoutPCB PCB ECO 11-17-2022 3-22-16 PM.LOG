@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=Gnd Pin=J1-1
+Removed Pin From Net: NetName=3V3 Pin=J1-2
+Added Pin To Net: NetName=3V3 Pin=J1-1
+Added Pin To Net: NetName=Gnd Pin=J1-4
+Added Pin To Net: NetName=NetJ1_2 Pin=J1-2
+Added Pin To Net: NetName=NetJ1_2 Pin=R2-2
+Added Pin To Net: NetName=NetJ1_2 Pin=U1-B2
+Added Net: Name=NetJ1_2
+Added Room: Name=MagnetometerBreakoutSCH

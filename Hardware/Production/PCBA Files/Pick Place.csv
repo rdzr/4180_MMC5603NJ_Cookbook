@@ -1,0 +1,18 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\MMC5603_Breakout\Project Outputs for MMC5603_Breakout\PCBA Files\Pick Place.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       11/12/22
+Time:       20:40
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+"Designator","Comment","Layer","Footprint","Center-X(mil)","Center-Y(mil)","Rotation","Description"
+"U1","MMC5603NJ","TopLayer","4-WLP","80.000","240.000","0","3-AXIS AMR MAGNETIC SENSOR"
+"R2","RC0805JR-072K7L","TopLayer","RES_0805","155.000","175.000","90","No Description Available"
+"R1","RC0805JR-072K7L","TopLayer","RES_0805","155.000","315.000","90","No Description Available"
+"J1","Header 0.1" 4P","TopLayer","0.1"_Header_4P","410.000","235.000","90","CONN SIL HDR MALE PIN"
+"C1","CL10A225KP8NNNC","TopLayer","CAP_0603","50.000","152.410","90","CAP CER 2.2UF 10V X5R 0603"

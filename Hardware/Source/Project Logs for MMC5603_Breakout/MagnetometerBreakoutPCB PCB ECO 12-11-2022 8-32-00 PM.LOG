@@ -1,0 +1,6 @@
+Change Component Library : Designator=C1 Old Library=KallenLib.IntLib New Library=MMCLib.IntLib
+Change Component Library : Designator=J1 Old Library=KallenLib.IntLib New Library=MMCLib.IntLib
+Change Component Library : Designator=R1 Old Library=KallenLib.IntLib New Library=MMCLib.IntLib
+Change Component Library : Designator=R2 Old Library=KallenLib.IntLib New Library=MMCLib.IntLib
+Change Component Library : Designator=U1 Old Library=KallenLib.IntLib New Library=MMCLib.IntLib
+Added Room: Name=MagnetometerBreakoutSCH

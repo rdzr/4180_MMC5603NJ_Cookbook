@@ -1,0 +1,10 @@
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of PCB Document [MagnetometerBreakoutPCB.PcbDoc]
+   Generated File[Pick Place.csv]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 8:40:06 PM On 12/11/2022
