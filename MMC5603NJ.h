@@ -11,7 +11,7 @@
 // define registers
 #define MMC_XOUT0 0x00
 #define MMC_XOUT1 0x01
-#define MMC_Y0UT0 0x02
+#define MMC_YOUT0 0x02
 #define MMC_YOUT1 0x03
 #define MMC_ZOUT0 0x04
 #define MMC_ZOUT1 0x05
@@ -44,10 +44,11 @@ class MMC5603NJ
 {
 public:
     MMC5603NJ(PinName sda, PinName scl);
-    void enable(void);
+    void setBitRate(unsigned char rate);
+    void enable();
     void disable(void);
     uint32_t PID(void);
-    float getTemp(void);
+    char getTemp(void);
     void getX();
     void getY();
     void getZ();
@@ -55,10 +56,11 @@ public:
     void readRegs(int addr, char * data, int len);
     float x, y, z;
 private:
-  I2C m_i2c;
-  int m_addr;
-  int32_t getMagAxis(char addr);
-  void writeRegs(char * data, int len);
+    int m_addr;
+    bool continuous;
+    I2C m_i2c;
+    int32_t getMagAxis(char addr);
+    void writeRegs(char * data, int len);
 
 };
 #endif
