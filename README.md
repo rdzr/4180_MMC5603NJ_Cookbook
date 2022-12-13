@@ -1,13 +1,14 @@
 <p align="center">
   <img width="500" height="673" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCboard.jpg">
 </p>
+
 Video Presentation link:
 
-[4180 Final Project MMC Breakout](https://gtvault-my.sharepoint.com/personal/kcunningham35_gatech_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkcunningham35%5Fgatech%5Fedu%2FDocuments%2FThird%20Year%2FFall%202022%2FECE%204180%2FFinal%20Project%20Slides%2Emp4&ct=1670872417308&or=OWA-NT&cid=b07bff2d-fa36-9e94-3c51-46a70336727f&ga=1)
+[4180 Final Project MMC Breakout](https://gtvault-my.sharepoint.com/:v:/g/personal/kcunningham35_gatech_edu/EbI8oMhD1v1Ls0I9PdzCicYBiZfQq55N_jR7iZXZx02hKw?e=4D1RbO)
 
 Video Demonstration link:
 
-[4180 Final Project MMC Breakout Demo](https://gtvault-my.sharepoint.com/personal/kcunningham35_gatech_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkcunningham35%5Fgatech%5Fedu%2FDocuments%2FThird%20Year%2FFall%202022%2FECE%204180%2FFinal%20Project%20Demo%2Emp4&ct=1670872226699&or=OWA-NT&cid=6426f8e7-7105-84ab-5ba4-74cedad1d782&ga=1)
+[4180 Final Project MMC Breakout Demo](https://gtvault-my.sharepoint.com/:v:/g/personal/kcunningham35_gatech_edu/Ed6LSII6g3NLusoBpMuMsVsBOc0XTfcwy2nOBlXwRSeERA?e=a4c9de)
 # 4180_MMC5603NJ_Cookbook
 The MMC5603NJ is an ultra-small monolithic integrated 3-axis AMR magnetic sensor. It uses an I2C interface with compatility for I3C interfacing.
 This repository serves as a wiki page for our magnetometer breakout boards that feature it as the primary piece for our ECE 4180 final project.
