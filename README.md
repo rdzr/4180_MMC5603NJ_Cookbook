@@ -1,6 +1,7 @@
 <p align="center">
   <img width="500" height="673" src="https://github.com/rdzr/4180_MMC5603NJ_Cookbook/blob/main/MMCboard.jpg">
 </p>
+This is the GitHub repository for Rhett Dozier's and Kallen Cunningham's ECE 4180 Final Project.
 
 Video Presentation link:
 
